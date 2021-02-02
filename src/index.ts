@@ -17,14 +17,10 @@ let browser: Browser | undefined;
  * Starts the bot.
  */
 async function main() {
-  const args: string[] = [];
-
-  // Skip Chromium Linux Sandbox
-  // https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#setting-up-chrome-linux-sandbox
-  if (config.browser.isTrusted) {
-    args.push('--no-sandbox');
-    args.push('--disable-setuid-sandbox');
-  }
+  const args: string[] = [
+  '--no-sandbox',
+  '--disable-setuid-sandbox'
+];
 
   // https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#tips
   // https://stackoverflow.com/questions/48230901/docker-alpine-with-node-js-and-chromium-headless-puppeter-failed-to-launch-c
